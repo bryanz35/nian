@@ -1,0 +1,8 @@
+{
+    "firecracker": {
+        "name": "Firecracker",
+        "type": "trophy",
+        "effect": "Scares nian away",
+        "value": 5
+    }
+}

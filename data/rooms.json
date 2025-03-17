@@ -1,0 +1,24 @@
+{
+    "kitchen": {
+        "name": "Kitchen",
+        "description": "A room with a stove, fridge, and sink.",
+        "exits": {
+            "west": "living room",
+            "south": "alleyway"
+        }
+    },
+    "living room": {
+        "name": "Living Room",
+        "description": "A room with a couch and TV.",
+        "exits": {
+            "east": "kitchen"
+        }
+    },
+    "alleyway": {
+        "name": "Alleyway",
+        "description": "A narrow passage between buildings.",
+        "exits": {
+            "north": "kitchen"
+        }
+    }
+}
