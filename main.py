@@ -49,11 +49,10 @@ while True:
     match i[0]:
         case "go":
             character.move(i[1])
-        case "look":
+        case "look" | "l":
             character.look()
-        case "quit":
+        case "quit" | "q":
             break
-        case "take":
+        case "take" | "get" | "grab":
             character.take(i[1])
-        case "get":
-            character.take(i[1])
+        
