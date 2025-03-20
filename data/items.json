@@ -1,8 +1,17 @@
 {
     "firecracker": {
         "name": "Firecracker",
+        "description": "A bright red firecracker with brilliant gold lining.",
         "type": "trophy",
-        "effect": "Scares nian away",
+        "effect": "Scares Nian away",
         "value": 5
+    }
+    ,
+    "knife": {
+        "name": "Knife",
+        "description": "An old kitchen knife.",
+        "type": "weapon",
+        "effect": "Deals 5 damage to Nian",
+        "value": 3
     }
 }

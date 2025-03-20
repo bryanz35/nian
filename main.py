@@ -19,33 +19,54 @@ class Player:
             self.location = rooms[self.location]["exits"][direction]
             self.look()
         else:
-            print("Invalid direction")
+            print("Invalid direction.")
 
     def look(self):
-        print(rooms[self.location]["description"])
-        print("Items in room: ")
+        print("You're in " + rooms[self.location]["description"])
+        print("\nItems in room: ")
         for item in rooms[self.location]["items"]:
             print(item)
+        print("\nDirections you can go: ")
+        for direction in rooms[self.location]["exits"]:
+            print(direction)
+
+    def inspect(self, item):
+        if item in self.inventory:
+            print(item["description"])
+        else:
+            print("You don't have that item.")
 
     def take(self, item):
         if item in rooms[self.location]["items"]:
             self.inventory.append(item)
             rooms[self.location]["items"].remove(item)
         else:
-            print("Item not found in room")
+            print("Item not found in room.")
 
     def drop(self, item):
         if item in self.inventory:
             self.inventory.remove(item)
             rooms[self.location]["items"].append(item)
         else:
-            print("Item not found in inventory")
+            print("Item not found in inventory.")
+
+    def help(self):
+        print("You can MOVE in a DIRECTION, LOOK, INSPECT and ITEM, TAKE an ITEM, or DROP an ITEM.\n")
 
 name = input("Enter your name: ")
 character = Player(name, "kitchen")
+print("\nYou find yourself back in your hometown. The Chinese New Year is arriving; how will you prepare this year?")
+character.help()
 
 while True: 
-    i = input().lower().split()
+    character.look()
+    print("What do you do next?")
+    while True:
+        i = input().lower().split()
+        if i == []:
+            print("You can't just stand idly.")
+        else:
+            break
     match i[0]:
         case "go":
             character.move(i[1])
@@ -55,4 +76,12 @@ while True:
             break
         case "take" | "get" | "grab":
             character.take(i[1])
+        case "inspect" | "i":
+            character.inspect(i[1])
+        case "drop" | "d":
+            character.drop(i[1])
+        case "help" | "h":
+            character.help()
+        case _ :
+            print("That action doesn't exist.")
         
