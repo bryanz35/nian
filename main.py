@@ -1,5 +1,7 @@
 import json
 
+global turns
+turns = 0
 rooms = open("data/rooms.json", "r")
 items = open("data/items.json", "r")
 
@@ -56,6 +58,7 @@ class Player:
 name = input("Enter your name: ")
 character = Player(name, "kitchen")
 print("\nYou find yourself back in your hometown. The Chinese New Year is arriving; how will you prepare this year?")
+print("\nBright morning light shines through the window, you remember that you have much to prepare for.")
 character.help()
 
 while True: 
@@ -67,6 +70,7 @@ while True:
             print("You can't just stand idly.")
         else:
             break
+    turns += 1
     match i[0]:
         case "go":
             character.move(i[1])
@@ -84,4 +88,9 @@ while True:
             character.help()
         case _ :
             print("That action doesn't exist.")
-        
+    if turns == 33:
+        print("\nThe sun is shining directly overhead. You get an uneasy feeling in your chest.")
+    elif turns == 66:
+        print("\nIt's getting dark outside. Time is running out.")
+    elif turns == 99:
+        break
