@@ -1,15 +1,67 @@
 {
-    "firecracker": {
+    "Firecracker": {
         "name": "Firecracker",
-        "description": "A bright red firecracker with brilliant gold lining.",
-        "type": "noise",
-        "value": 5
-    }
-    ,
-    "knife": {
-        "name": "Knife",
-        "description": "An old kitchen knife.",
-        "type": "weapon",
-        "value": 0
+        "alias": ["firecracker"],
+        "description": "A bright red firecracker with brilliant gold lining."
+    },
+    "Jingu Bang": {
+        "name": "Ruyi Jingu Bang",
+        "alias": ["jingu bang", "ruyi jingu bang", "staff"],
+        "description": "You feel power surging through you..."
+    },
+    "Unlit Lantern": {
+        "name": "Unlit Lantern",
+        "alias": ["unlit lantern", "lantern"],
+        "description": "A well-crafted lantern with 'nian' written on the side."
+    },
+    "Lit Lantern": {
+        "name": "Lit Lantern",
+        "alias": ["lit lantern", "glowing lantern"],
+        "description": "The lantern glows with a warm, steady light."
+    },
+    "Old Flame Stick": {
+        "name": "Old Flame Stick",
+        "alias": ["flame stick", "torch", "stick"],
+        "description": "An old wooden stick that lights up with a small, steady flame."
+    },
+    "Dragon Spring Couplets": {
+        "name": "Dragon Spring Couplets",
+        "alias": ["dragon couplets", "spring couplets", "red couplets"],
+        "description": "A set of Dragon Spring Couplets symbolizing strength."
+    },
+    "Blossom Spring Couplets": {
+        "name": "Blossom Spring Couplets",
+        "alias": ["blossom couplets", "spring couplets", "pink couplets"],
+        "description": "A set of Blossom Spring Couplets symbolizing renewal."
+    },
+    "Door Gods": {
+        "name": "Door Gods",
+        "alias": ["door gods", "guardians", "paper gods"],
+        "description": "The Door Gods are believed to guard against evil spirits and misfortune."
+    },
+    "Chinese Knot": {
+        "name": "Chinese Knot",
+        "alias": ["chinese knot", "knot", "red knot"],
+        "description": "The Chinese Knot symbolizes prosperity and unity."
+    },
+    "Gourd": {
+        "name": "Gourd",
+        "alias": ["gourd", "calabash"],
+        "description": "A child's snoring can be heard inside."
+    },
+    "Peach Blossom Branch": {
+        "name": "Peach Blossom Branch",
+        "alias": ["peach blossom", "blossom branch", "peach branch"],
+        "description": "A delicate branch adorned with vibrant peach blossoms. Why would you harm the tree like this?"
+    },
+    "Immortality Peaches": {
+        "name": "Immortality Peaches",
+        "alias": ["immortality peaches", "magic peaches", "heavenly peaches", "peaches"],
+        "description": "Legendary peaches said to grant immortality. Too bad you can’t actually eat them."
+    },
+    "Gong": {
+        "name": "Gong",
+        "alias": ["gong", "large gong", "brass gong"],
+        "description": "A heavy brass gong with an ornate dragon design. Its deep sound echoes far and wide."
     }
 }

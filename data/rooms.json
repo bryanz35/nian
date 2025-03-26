@@ -1,28 +1,159 @@
 {
-    "kitchen": {
-        "name": "Kitchen",
-        "description": "a cramped room with a gas stove, fridge, and sink.",
+    "Principal House": {
+        "name": "Principal House",
+        "description": "You're in the Principal House. A statue of a hideous Nian towers above you.",
         "exits": {
-            "west": "living room",
-            "south": "alleyway"
+            "east": "Eastern Wing House",
+            "south": "Inner Courtyard",
+            "west": "Side Room"
         },
-        "items": ["knife"]
+        "items": [],
+        "object_slots": []
         
     },
-    "living room": {
-        "name": "Living Room",
-        "description": "a cozy room with a couch and TV.",
+    "Side Room": {
+        "name": "Side Room",
+        "description": "You're in the Side Room. Before you lies a staff, cracking the earth around it.",
         "exits": {
-            "east": "kitchen"
+            "east": "Principal House",
+            "south": "Western Wing House"
         },
-        "items":[]
+        "items":["Jingu Bang"],
+        "object_slots": []
     },
-    "alleyway": {
-        "name": "Alleyway",
-        "description": "a narrow passage between buildings.",
+    "Inner Courtyard": {
+        "name": "Inner Courtyard",
+        "description": "You're in the Inner Courtyard.",
         "exits": {
-            "north": "kitchen"
+            "north": "Principal House",
+            "west": "Western Wing House",
+            "east": "Eastern Wing House",
+            "south": "Opposite House"
         },
-        "items":[]
+        "items":[],
+        "object_slots": []
+    },
+    "Western Wing House": {
+        "name": "Western Wing House",
+        "description": "You're in the Western Wing House.",
+        "exits": {
+            "north": "Side Room",
+            "east": "Inner Courtyard",
+            "south": "Opposite House"
+        },
+        "items":["Firecracker"],
+        "object_slots": []
+    },
+    "Eastern Wing House": {
+        "name": "Eastern Wing House",
+        "description": "You're in the Eastern Wing House. You remember how you used to lounge around with friends and family, enjoying ",
+        "exits": {
+            "north": "Principal House",
+            "west": "Inner Courtyard",
+            "south": "Screen Wall"
+        },
+        "items":["Unlit Lantern"],
+        "object_slots": []
+    },
+    "Opposite House": {
+        "name": "Opposite House",
+        "description": "You're in the Opposite House. Is it opposite day today?",
+        "exits": {
+            "north": "Inner Courtyard",
+            "west": "Western Wing House",
+            "east": "Screen Wall"
+        },
+        "items":["Old Flame Stick"],
+        "object_slots": []
+    },
+    "Screen Wall": {
+        "name": "Screen Wall",
+        "description": "You're in the Screen Wall. There's a large mural of a dragon missing an eye.",
+        "exits": {
+            "north": "Eastern Wing house",
+            "west": "Opposite House",
+            "south": "Gatehouse"
+        },
+        "items":[],
+        "object_slots": []
+    },
+    "Gatehouse": {
+        "name": "Gatehouse",
+        "description": "You're in the Gatehouse. It feels a little empty in here; the gate could use some decor.",
+        "exits": {
+            "north": "Screen Wall",
+            "south": "Main Street"
+        },
+        "items":[],
+        "object_slots": ["Lit Lantern", "Dragon Spring Couplet", "Blossom Spring Couplet", "Door Gods", "Chinese Knot"]
+    },
+    "Main Street": {
+        "name": "Main Street",
+        "description": "You're in the Main Street. A couple kids are kicking a Jianzi on the side of the road.",
+        "exits": {
+            "north": "Gatehouse",
+            "south": "Neighbor's House",
+            "east": "Market",
+            "west": "Temple"
+        },
+        "items":["Gourd"],
+        "object_slots": ["Firecracker"]
+    },
+    "Neighbor's House": {
+        "name": "Neighbor's House",
+        "description": "You knock on the door, but no one answers. Pay me $5.99 for this extension pack.",
+        "exits": {
+            "north": "Main Street"
+        },
+        "items":[],
+        "object_slots": []
+    },
+    "Market": {
+        "name": "Market",
+        "description": "You're in the Market. Something about the bustling atmosphere makes you feel at home.",
+        "exits": {
+            "west": "Main Street"
+        },
+        "items":["Dragon Spring Couplet"],
+        "object_slots": []
+    },
+    "Temple": {
+        "name": "Temple",
+        "description": "You're in the Temple. There's a holy energy emenating from the grandiose painting on the walls.",
+        "exits": {
+            "east": "Main Street",
+            "south": "Temple Courtyard"
+        },
+        "items":["Door Gods", "Blossom Spring Couplet"],
+        "object_slots": []
+    },
+    "Temple Courtyard": {
+        "name": "Temple Courtyard",
+        "description": "You're in the Temple Courtyard. Thousands of years of history line the tiling beneath your feet.",
+        "exits": {
+            "north": "Temple",
+            "south": "Temple Garden"
+        },
+        "items":["Chinese Knot"],
+        "object_slots": []
+    },
+    "Temple Garden": {
+        "name": "Temple Garden",
+        "description": "You're in the Temple Garden. You see a beautiful peach blossom tree standing next to a pond.",
+        "exits": {
+            "north": "Temple Courtyard",
+            "south": "Cemetery"
+        },
+        "items":["Peach Blossom Branch", "Immortality Peaches"],
+        "object_slots": []
+    },
+    "Cemetery": {
+        "name": "Cemetery",
+        "description": "You're in the Cemetery. \nIt's dark and dreary out here; you feel the weight of a thousand dead souls looming.",
+        "exits": {
+            "north": "Temple Garden"
+        },
+        "items":["Gong"],
+        "object_slots": []
     }
 }
