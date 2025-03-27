@@ -4,10 +4,10 @@
         "alias": ["firecracker"],
         "description": "A bright red firecracker with brilliant gold lining."
     },
-    "Jingu Bang": {
+    "Ruyi Jingu Bang": {
         "name": "Ruyi Jingu Bang",
         "alias": ["jingu bang", "ruyi jingu bang", "staff"],
-        "description": "You feel power surging through you..."
+        "description": "A long, beautiful stick. You feel power surging through you... shame it seems you aren't worthy."
     },
     "Unlit Lantern": {
         "name": "Unlit Lantern",
@@ -16,7 +16,7 @@
     },
     "Lit Lantern": {
         "name": "Lit Lantern",
-        "alias": ["lit lantern", "glowing lantern"],
+        "alias": ["lit lantern", "glowing lantern", "lantern"],
         "description": "The lantern glows with a warm, steady light."
     },
     "Old Flame Stick": {
@@ -26,17 +26,17 @@
     },
     "Dragon Spring Couplets": {
         "name": "Dragon Spring Couplets",
-        "alias": ["dragon couplets", "spring couplets", "red couplets"],
+        "alias": ["dragon couplets", "spring couplets", "red couplets", "dragon spring couplets"],
         "description": "A set of Dragon Spring Couplets symbolizing strength."
     },
     "Blossom Spring Couplets": {
         "name": "Blossom Spring Couplets",
-        "alias": ["blossom couplets", "spring couplets", "pink couplets"],
+        "alias": ["blossom couplets", "spring couplets", "pink couplets", "blossom spring couplets"],
         "description": "A set of Blossom Spring Couplets symbolizing renewal."
     },
     "Door Gods": {
         "name": "Door Gods",
-        "alias": ["door gods", "guardians", "paper gods"],
+        "alias": ["door gods", "guardians", "paper gods", "gods"],
         "description": "The Door Gods are believed to guard against evil spirits and misfortune."
     },
     "Chinese Knot": {
@@ -51,7 +51,7 @@
     },
     "Peach Blossom Branch": {
         "name": "Peach Blossom Branch",
-        "alias": ["peach blossom", "blossom branch", "peach branch"],
+        "alias": ["peach blossom", "blossom branch", "peach branch", "branch", "branches"],
         "description": "A delicate branch adorned with vibrant peach blossoms. Why would you harm the tree like this?"
     },
     "Immortality Peaches": {
@@ -63,5 +63,20 @@
         "name": "Gong",
         "alias": ["gong", "large gong", "brass gong"],
         "description": "A heavy brass gong with an ornate dragon design. Its deep sound echoes far and wide."
+    },
+    "Dragon's Eye": {
+        "name": "Draagon's Eye",
+        "alias": ["dragons eye", "dragon eye","eye", "eyes", "dragon's eye"],
+        "description": "It stares back at you.. creepy."
+    },
+    "Newspaper": {
+        "name": "Newspaper",
+        "alias": ["news", "newspaper"],
+        "description": "Last year's New Year Special. It reads: Disaster Strikes Again! \nThis year, eight towns across the country have been ravaged by a mysterious entity. \nThough no one has ever seen it and lived to tell the tale, everyone calls it by one name: Nian."
+    },
+    "Journal":{
+        "name": "Journal",
+        "alias": ["journal, book, notebook, diary"],
+        "description": "A dust covered notebook from Hongjun Laozu. Inside it says: I tried to protect the town, but it was nearly too late. \nNobody wants to live in this accursed place anymore. \nTo whoever may find this journal, heed my words. \nIn a New Year full of hopes and dreams, \nthere is a monster lurking in the shadows. \nColor your town with decor and festive sound; \nit is the only way to protect your town."
     }
 }

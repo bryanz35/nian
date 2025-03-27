@@ -1,14 +1,14 @@
 {
     "Principal House": {
         "name": "Principal House",
-        "description": "You're in the Principal House. A statue of a hideous Nian towers above you.",
+        "description": "You're in the Principal House. A statue of the hideous Nian towers above you. Upon closer inspection, you see that the statue is missing an eye.",
         "exits": {
             "east": "Eastern Wing House",
             "south": "Inner Courtyard",
             "west": "Side Room"
         },
-        "items": [],
-        "object_slots": []
+        "items": ["Newspaper"],
+        "object_slots": ["Dragon's Eye"]
         
     },
     "Side Room": {
@@ -18,12 +18,12 @@
             "east": "Principal House",
             "south": "Western Wing House"
         },
-        "items":["Jingu Bang"],
+        "items":["Ruyi Jingu Bang"],
         "object_slots": []
     },
     "Inner Courtyard": {
         "name": "Inner Courtyard",
-        "description": "You're in the Inner Courtyard.",
+        "description": "You're in the Inner Courtyard. It is peaceful here.",
         "exits": {
             "north": "Principal House",
             "west": "Western Wing House",
@@ -31,28 +31,28 @@
             "south": "Opposite House"
         },
         "items":[],
-        "object_slots": []
+        "object_slots": ["Peach Blossom Branch"]
     },
     "Western Wing House": {
         "name": "Western Wing House",
-        "description": "You're in the Western Wing House.",
+        "description": "You're in the Western Wing House. This was where you remember firecracker merchant staying.",
         "exits": {
             "north": "Side Room",
             "east": "Inner Courtyard",
             "south": "Opposite House"
         },
-        "items":["Firecracker"],
+        "items":[],
         "object_slots": []
     },
     "Eastern Wing House": {
         "name": "Eastern Wing House",
-        "description": "You're in the Eastern Wing House. You remember how you used to lounge around with friends and family, enjoying ",
+        "description": "You're in the Eastern Wing House. You remember how you used to lounge around with friends and family, enjoying the blissfulness that once was.",
         "exits": {
             "north": "Principal House",
             "west": "Inner Courtyard",
             "south": "Screen Wall"
         },
-        "items":["Unlit Lantern"],
+        "items":["Unlit Lantern", "Journal"],
         "object_slots": []
     },
     "Opposite House": {
@@ -74,7 +74,7 @@
             "west": "Opposite House",
             "south": "Gatehouse"
         },
-        "items":[],
+        "items":["Dragon's Eye"],
         "object_slots": []
     },
     "Gatehouse": {
@@ -85,7 +85,7 @@
             "south": "Main Street"
         },
         "items":[],
-        "object_slots": ["Lit Lantern", "Dragon Spring Couplet", "Blossom Spring Couplet", "Door Gods", "Chinese Knot"]
+        "object_slots": ["Lit Lantern", "Dragon Spring Couplets", "Blossom Spring Couplets", "Door Gods", "Chinese Knot"]
     },
     "Main Street": {
         "name": "Main Street",
@@ -93,7 +93,7 @@
         "exits": {
             "north": "Gatehouse",
             "south": "Neighbor's House",
-            "east": "Market",
+            "east": "West Market",
             "west": "Temple"
         },
         "items":["Gourd"],
@@ -108,13 +108,24 @@
         "items":[],
         "object_slots": []
     },
-    "Market": {
-        "name": "Market",
-        "description": "You're in the Market. Something about the bustling atmosphere makes you feel at home.",
+    "West Market": {
+        "name": "West Market",
+        "description": "You're in the western area of a market. Perhaps it used to be bustling with activity. Unfortunately, there are no shops to rob.",
         "exits": {
-            "west": "Main Street"
+            "west": "Main Street",
+            "east": "East Market"
         },
-        "items":["Dragon Spring Couplet"],
+        "items":["Dragon Spring Couplets"],
+        "object_slots": []
+    },
+    "East Market": {
+        "name": "East Market",
+        "description": "You're in the eastern area of a market. It is strangely abandoned.",
+        "exits": {
+            "west": "West Market",
+            "east": "Temple"
+        },
+        "items":["Firecracker"],
         "object_slots": []
     },
     "Temple": {
@@ -124,7 +135,7 @@
             "east": "Main Street",
             "south": "Temple Courtyard"
         },
-        "items":["Door Gods", "Blossom Spring Couplet"],
+        "items":["Door Gods", "Blossom Spring Couplets"],
         "object_slots": []
     },
     "Temple Courtyard": {
@@ -154,6 +165,6 @@
             "north": "Temple Garden"
         },
         "items":["Gong"],
-        "object_slots": []
+        "object_slots": ["Immortality Peaches"]
     }
 }

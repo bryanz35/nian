@@ -1,9 +1,7 @@
 import json
 
-global turns
 global sum
-turns = 0
-points = 0
+
 rooms = open("data/rooms.json", "r")
 items = open("data/items.json", "r")
 
@@ -16,6 +14,8 @@ class Player:
         self.inventory = []
         self.health = 100
         self.gonged = False
+        self.points = 0
+        self.turns = 0
 
     def move(self, direction):
         if direction in rooms[self.location]["exits"]:
@@ -23,6 +23,7 @@ class Player:
             self.look()
         else:
             print("Invalid direction.")
+            self.turns -= 1
 
     def look(self):
         print("\n" + rooms[self.location]["description"])
@@ -37,10 +38,16 @@ class Player:
             print(direction)
 
     def inspect(self, item):
-        if item in self.inventory:
-            print(items[item]["description"])
-        else:
-            print("You don't have that item.")
+        item = item.lower()
+        for itemobject in items:
+            if item in items[itemobject]["alias"]:
+                invSet = set(self.inventory)
+                invSet.add(items[itemobject]["name"])
+                if len(invSet) < len(self.inventory) + 1:
+                    print(items[itemobject]["description"])
+                else:
+                    print("You don't have that item.")
+                    self.turns -= 1
 
     def take(self, item):
         for room_item in rooms[self.location]["items"]:
@@ -51,6 +58,7 @@ class Player:
                 return
         else:
             print("Item not found in room.")
+            self.turns -= 1
 
     def drop(self, item):
         if item in self.inventory:
@@ -59,30 +67,48 @@ class Player:
             print("You dropped the " + item + ".")
         else:
             print("Item not found in inventory.")
+            self.turns -= 1
+
     def use(self, item):
+        item = item.lower()
         for itemobject in items:
             if item in items[itemobject]["alias"]:
-                # item is a valid thing. Now check inventory
                 invSet = set(self.inventory)
-                invSet.append(items[itemobject]["name"])
-                #TODO
-                if item == "Gong":
-                    print("You hit the gong with the mallet. The sound reverberates through the air.")
-                    if self.gonged == False:
-                        print("You feel a little safer.")
-                        points += 2
-                        self.gonged = True
+                invSet.add(items[itemobject]["name"])
+                if len(invSet) < len(self.inventory) + 1:
+                    print("DEBUG: " + itemobject + " " + items[itemobject]["name"])
+                    if item == "gong":
+                        print("You hit the gong with the mallet. The sound reverberates through the air.")
+                        if self.gonged == False:
+                            print("You feel a little safer.")
+                            self.points += 2
+                            self.gonged = True
+                        else:
+                            print("Maybe you should stop. You'll get a noise complaint.")
+                            self.turns -= 1
+                        return
+                    if item == "Dragon's Eye":
+                        print("The dragon's eye fits smoothly into the eye of nian.")
+                        print("You hear a low rumbe")
+                        print("Suddenly, it becomes nighttime!")
+                        self.turns = 50
+                    if item in rooms[self.location]["object_slots"]:
+                        print("You placed the " + item + " in the room. What a wonderful decoration!")
+                        rooms[self.location]["object_slots"].remove(item)
+                        self.inventory.remove(item)
+                        self.points += 1
+                    elif item in items["Unlit Lantern"]["alias"]:
+                        if "Lit Lantern" in self.inventory:
+                            self.use("lit lantern")
+                            return
+                        print("Hanging up an unlit lantern seems depressing. Maybe there's a way to light it?")
+                        self.turns -= 1
                     else:
-                        print("Maybe you should stop. You'll get a noise complaint.")
-                if item in rooms[self.location]["object_slots"]:
-                    print("You placed the " + item + " in the room. What a wonderful decoration!")
-                    rooms[self.location]["object_slots"].remove(item)
-                    self.inventory.remove(item)
-                    points += 1
-                else:
-                    print("You can't place that item here.")
-                return
+                        print("You can't place that item here. Maybe it'll fit somewhere else...")
+                        self.turns -= 1
+                    return
         print("You can't find that item in your inventory.")
+        self.turns -= 1
 
     def checkInv(self):
         if len(self.inventory) == 0:
@@ -100,14 +126,17 @@ class Player:
                 
                 self.inventory.remove("Unlit Lantern")
                 self.inventory.append("Lit Lantern")
+                print("The lantern glows with a soft brilliance. You feel the desire to hang it up.")
             else:
-                print("\nYou don't have anything to light this lantern. Keep looking silly goose.")
+                print("\nYou don't have anything to light this lantern with. Keep looking silly goose.")
+                self.turns -= 1
 
         else:
             print("\nYou don't have anything to light yet. Are you an aspiring arsonist?")
+            self.turns -= 1
 
     def help(self):
-        print("You can MOVE in a DIRECTION, LOOK, INSPECT an ITEM, TAKE an ITEM, CHECK your INVENTORY, LIGHT items, get HELP, or DROP an ITEM.\n")
+        print("You can MOVE in a DIRECTION, LOOK, INSPECT an ITEM, TAKE an ITEM, \nCHECK your INVENTORY, LIGHT items, get HELP, or DROP an ITEM.\n")
 
 name = input("Enter your name: ")
 character = Player(name, "Principal House")
@@ -117,44 +146,68 @@ character.help()
 
 while True: 
     print("\nWhat do you do next?")
+    character.turns += 1
     i = input().lower().split()
     if i == []:
         print("You can't just stand idly.")
-        turns -= 1
+        character.turns -= 1
         continue
-    turns += 1
     print("_____________________________________")
     match i[0]:
         case "go":
+            if len(i) == 1:
+                print("Be more specific.")
+                character.turns -= 1
+                continue
             character.move(i[1])
         case "look" | "l":
             character.look()
         case "quit" | "q":
             break
         case "take" | "get" | "grab":
+            if len(i) == 1:
+                print("Be more specific.")
+                character.turns -= 1
+                continue
             print("DEBUG: " + " ".join(i[1:]))
             character.take(" ".join(i[1:]))
         case "inspect" | "i":
+            if len(i) == 1:
+                print("Be more specific.")
+                character.turns -= 1
+                continue
             character.inspect(" ".join(i[1:]))
         case "drop" | "d":
+            if len(i) == 1:
+                print("Be more specific.")
+                character.turns -= 1
+                continue
             character.drop(" ".join(i[1:]))
         case "help" | "h":
             character.help()
         case "check" | "inventory":
             character.checkInv()
         case "light":
+            if len(i) == 1:
+                print("Be more specific.")
+                character.turns -= 1
+                continue
             character.light(" ".join(i[1:]))
         case "use":
+            if len(i) == 1:
+                print("Be more specific.")
+                character.turns -= 1
+                continue
             character.use(" ".join(i[1:]))
         case _ :
-            turns -= 1
+            character.turns -= 1
             print("That action doesn't exist.")
-    if turns == 33:
+    if character.turns == 20:
         print("\nThe sun is shining directly overhead. You get an ominous feeling.")
-    elif turns == 66:
+    elif character.turns == 40:
         print("\nIt's getting dark outside. Time is running out.")
-    elif turns == 99:
-        if points > 5:
+    elif character.turns >= 50:
+        if character.points > 5:
             print("\nThe unearthly beast has arrived at the town, but you are adequately prepared.")
             print("\nFaced with a sea of red decorations and unsettling noise, Nian backs off from your town.")
             print("\nYou've saved your friends and family from certain demise this year; how will you fair next New Year's Eve?")
