@@ -38,7 +38,6 @@ class Player:
             print(direction)
 
     def inspect(self, item):
-        item = item.lower()
         for itemobject in items:
             if item in items[itemobject]["alias"]:
                 invSet = set(self.inventory)
@@ -154,7 +153,7 @@ while True:
         continue
     print("_____________________________________")
     match i[0]:
-        case "go":
+        case "go" | "move":
             if len(i) == 1:
                 print("Be more specific.")
                 character.turns -= 1
