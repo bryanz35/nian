@@ -70,7 +70,7 @@
         "name": "Screen Wall",
         "description": "You're in the Screen Wall. There's a large mural of a dragon missing an eye.",
         "exits": {
-            "north": "Eastern Wing house",
+            "north": "Eastern Wing House",
             "west": "Opposite House",
             "south": "Gatehouse"
         },
