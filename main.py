@@ -8,8 +8,7 @@ items = open("data/items.json", "r")
 rooms = json.load(rooms)
 items = json.load(items)
 class Player:
-    def __init__(self, name, location):
-        self.name = name
+    def __init__(self, location):
         self.location = location
         self.inventory = []
         self.health = 100
@@ -50,6 +49,8 @@ class Player:
 
     def take(self, item):
         for room_item in rooms[self.location]["items"]:
+            if item == "kids" or item == "children":
+                print("You hear sirens approaching. Maybe not a good idea.")
             if item.lower() in items[room_item]["alias"] or item.lower() == items[room_item]["name"].lower():
                 self.inventory.append(room_item)
                 rooms[self.location]["items"].remove(room_item)
@@ -77,10 +78,8 @@ class Player:
             if item in items[itemobject]["alias"]:
                 invSet = set(self.inventory)
                 invSet.add(items[itemobject]["name"])
-                print("DEBUG: " + invSet.__str__())
                 if len(invSet) < len(self.inventory) + 1:
-                    print("DEBUG: " + itemobject + " " + items[itemobject]["name"])
-                    if itemobject == "gong":
+                    if itemobject == "Gong":
                         print("You hit the gong with the mallet. The sound reverberates through the air.")
                         if self.gonged == False:
                             print("You feel a little safer.")
@@ -109,7 +108,6 @@ class Player:
                         self.points += 1
                     elif itemobject in items["Unlit Lantern"]["alias"]:
                         if "Lit Lantern" in self.inventory:
-                            print("DEBUG: USING LIT LANTERN")
                             self.use("lit lantern")
                             return
                         print("Hanging up an unlit lantern seems depressing. Maybe there's a way to light it?")
@@ -149,8 +147,7 @@ class Player:
     def help(self):
         print("You can MOVE in a DIRECTION, LOOK, INSPECT an ITEM, TAKE an ITEM, \nCHECK your INVENTORY, LIGHT items, get HELP, or DROP an ITEM.\n")
 
-name = input("Enter your name: ")
-character = Player(name, "Principal House")
+character = Player("Principal House")
 print("\nYou find yourself back in your hometown. The Chinese New Year is arriving; how will you prepare this year?")
 print("Bright morning light shines through the window, you remember that you have much to prepare for.")
 character.help()
@@ -180,7 +177,6 @@ while True:
                 print("Be more specific.")
                 character.turns -= 1
                 continue
-            print("DEBUG: " + " ".join(i[1:]))
             character.take(" ".join(i[1:]))
         case "inspect" | "i":
             if len(i) == 1:
