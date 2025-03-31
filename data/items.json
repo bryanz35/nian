@@ -74,9 +74,9 @@
         "alias": ["news", "newspaper"],
         "description": "Last year's New Year Special. It reads: Disaster Strikes Again! \nThis year, eight towns across the country have been ravaged by a mysterious entity. \nThough no one has ever seen it and lived to tell the tale, everyone calls it by one name: Nian."
     },
-    "Journal":{
+    "Journal": {
         "name": "Journal",
-        "alias": ["journal, book, notebook, diary"],
-        "description": "A dust covered notebook from Hongjun Laozu. Inside it says: I tried to protect the town, but it was nearly too late. \nNobody wants to live in this accursed place anymore. \nTo whoever may find this journal, heed my words. \nIn a New Year full of hopes and dreams, \nthere is a monster lurking in the shadows. \nColor your town with decor and festive sound; \nit is the only way to protect your town."
+        "alias": ["journal", "book", "notebook", "diary"],
+        "description": "A dust covered notebook from Hongjun Laozu. \nInside it says: I tried to protect the town, but it was nearly too late. \nNobody wants to live in this accursed place anymore. \nTo whoever may find this journal, heed my words. \nIn a New Year full of hopes and dreams, \nthere is a monster lurking in the shadows. \nColor your town with decor and festive sound; \nit is the only way to protect your town."
     }
 }

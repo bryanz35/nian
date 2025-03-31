@@ -8,18 +8,18 @@
             "west": "Side Room"
         },
         "items": ["Newspaper"],
-        "object_slots": ["Dragon's Eye"]
+        "object_slots": ["Dragon's Eye", "Lit Lantern"]
         
     },
     "Side Room": {
         "name": "Side Room",
-        "description": "You're in the Side Room. Before you lies a staff, cracking the earth around it.",
+        "description": "You're in the Side Room. Before you lies the mythical RUyi Jingu Bang, cracking the earth around it.",
         "exits": {
             "east": "Principal House",
             "south": "Western Wing House"
         },
         "items":["Ruyi Jingu Bang"],
-        "object_slots": []
+        "object_slots": ["Lit Lantern"]
     },
     "Inner Courtyard": {
         "name": "Inner Courtyard",
@@ -42,7 +42,7 @@
             "south": "Opposite House"
         },
         "items":[],
-        "object_slots": []
+        "object_slots": ["Lit Lantern"]
     },
     "Eastern Wing House": {
         "name": "Eastern Wing House",
@@ -53,7 +53,7 @@
             "south": "Screen Wall"
         },
         "items":["Unlit Lantern", "Journal"],
-        "object_slots": []
+        "object_slots": ["Lit Lantern"]
     },
     "Opposite House": {
         "name": "Opposite House",
@@ -64,13 +64,13 @@
             "east": "Screen Wall"
         },
         "items":["Old Flame Stick"],
-        "object_slots": []
+        "object_slots": ["Lit Lantern"]
     },
     "Screen Wall": {
         "name": "Screen Wall",
         "description": "You're in the Screen Wall. There's a large mural of a dragon missing an eye.",
         "exits": {
-            "north": "Eastern Wing house",
+            "north": "Eastern Wing House",
             "west": "Opposite House",
             "south": "Gatehouse"
         },
@@ -106,7 +106,7 @@
             "north": "Main Street"
         },
         "items":[],
-        "object_slots": []
+        "object_slots": ["Unlit Lantern"]
     },
     "West Market": {
         "name": "West Market",

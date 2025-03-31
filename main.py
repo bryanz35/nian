@@ -60,23 +60,27 @@ class Player:
             self.turns -= 1
 
     def drop(self, item):
-        if item in self.inventory:
-            self.inventory.remove(item)
-            rooms[self.location]["items"].append(item)
-            print("You dropped the " + item + ".")
-        else:
-            print("Item not found in inventory.")
-            self.turns -= 1
-
-    def use(self, item):
-        item = item.lower()
         for itemobject in items:
             if item in items[itemobject]["alias"]:
                 invSet = set(self.inventory)
                 invSet.add(items[itemobject]["name"])
                 if len(invSet) < len(self.inventory) + 1:
+                    print("You drop the " + items[itemobject]["name"] + " on the ground.")
+                    self.inventory.remove(itemobject)
+                    rooms[self.location]["items"].append(itemobject)
+                else:
+                    print("You don't have that item.")
+                    self.turns -= 1
+
+    def use(self, item):
+        for itemobject in items:
+            if item in items[itemobject]["alias"]:
+                invSet = set(self.inventory)
+                invSet.add(items[itemobject]["name"])
+                print("DEBUG: " + invSet.__str__())
+                if len(invSet) < len(self.inventory) + 1:
                     print("DEBUG: " + itemobject + " " + items[itemobject]["name"])
-                    if item == "gong":
+                    if itemobject == "gong":
                         print("You hit the gong with the mallet. The sound reverberates through the air.")
                         if self.gonged == False:
                             print("You feel a little safer.")
@@ -86,18 +90,26 @@ class Player:
                             print("Maybe you should stop. You'll get a noise complaint.")
                             self.turns -= 1
                         return
-                    if item == "Dragon's Eye":
-                        print("The dragon's eye fits smoothly into the eye of nian.")
-                        print("You hear a low rumbe")
-                        print("Suddenly, it becomes nighttime!")
-                        self.turns = 50
-                    if item in rooms[self.location]["object_slots"]:
-                        print("You placed the " + item + " in the room. What a wonderful decoration!")
-                        rooms[self.location]["object_slots"].remove(item)
-                        self.inventory.remove(item)
+                    
+                    if itemobject in rooms[self.location]["object_slots"]:
+                        if itemobject == "Dragon's Eye":
+                            print("The dragon's eye fits smoothly into the eye of nian.")
+                            print("You hear a low rumble")
+                            print("Suddenly, it becomes nighttime!")
+                            self.turns = 50
+                            return
+                        if itemobject == "Firecracker":
+                            print("You use the firecracker, spreading the holiday joy. This will probably scare nian!")
+                            self.inventory.remove(itemobject)
+                            self.points += 1
+                            return
+                        print("You placed the " + itemobject + " in the room. What a wonderful decoration!")
+                        rooms[self.location]["object_slots"].remove(itemobject)
+                        self.inventory.remove(itemobject)
                         self.points += 1
-                    elif item in items["Unlit Lantern"]["alias"]:
+                    elif itemobject in items["Unlit Lantern"]["alias"]:
                         if "Lit Lantern" in self.inventory:
+                            print("DEBUG: USING LIT LANTERN")
                             self.use("lit lantern")
                             return
                         print("Hanging up an unlit lantern seems depressing. Maybe there's a way to light it?")
