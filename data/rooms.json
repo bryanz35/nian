@@ -160,11 +160,34 @@
     },
     "Cemetery": {
         "name": "Cemetery",
-        "description": "You're in the Cemetery. \nIt's dark and dreary out here; you feel the weight of a thousand dead souls looming.",
+        "description": "You're in the Cemetery. \nIt's dark and dreary out here. To the south, you see a large amount of warning signs",
         "exits": {
-            "north": "Temple Garden"
+            "north": "Temple Garden",
+            "south": "Entrance to Trenches"
         },
         "items":["Gong"],
         "object_slots": ["Immortality Peaches"]
+    },
+    "Entrance to Trenches": {
+        "name": "Entrance to Trenches",
+        "description": "You inspect the warning signs. They read:\n'Warning: My friend is in the trenches. Wheeler docked him on his E&M test.'",
+        "exits": {
+            "north": "Cemetery",
+            "south": "Trenches"
+        },
+        "items":[],
+        "object_slots": []
+    },
+    "Trenches": {
+        "name": "Trenches",
+        "description": "You're in the Trenches. There is no exit. Press 'q' to quit.",
+        "exits": {
+            "north": "Trenches",
+            "east": "Trenches",
+            "south": "Trenches",
+            "west": "Trenches"
+        },
+        "items":[],
+        "object_slots": []
     }
 }
